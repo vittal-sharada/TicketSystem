@@ -1,4 +1,50 @@
-SELECT department.deptname, department.deptid, count(*) c 
-from department inner join items 
-on items.deptid=department.deptid
-group by items.deptid having count(*) >4 ;
+Query: 
+SELECT department.deptname, department.deptid, COUNT(*) c 
+FROM department INNER JOIN items 
+ON items.deptid=department.deptid
+GROUP BY items.deptid having COUNT(*) >4 ;
+
+
+CREATE TABLE department (
+  deptid int NOT NULL,
+  deptname varchar(50) NOT NULL,
+  PRIMARY KEY (deptid)
+);
+
+CREATE TABLE items (
+   itemid int NOT NULL,
+   itemname varchar(50) NOT NULL,
+   deptid int NOT NULL,
+   PRIMARY KEY (itemid),
+   FOREIGN KEY (deptid) REFERENCES department(deptid)
+);
+
+
+
+INSERT INTO department VALUES ("1", "a");
+INSERT INTO department VALUES ("2", "b");
+INSERT INTO department VALUES ("3", "c");
+INSERT INTO department VALUES ("4", "d");
+INSERT INTO department VALUES ("5", "e");
+
+INSERT INTO items VALUES ("1","abc1","2");
+INSERT INTO items VALUES ("2","abc2","2");
+INSERT INTO items VALUES ("3","abc3","2");
+INSERT INTO items VALUES ("4","abc4","2");
+INSERT INTO items VALUES ("5","abc5","1");
+INSERT INTO items VALUES ("6","abc6","1");
+INSERT INTO items VALUES ("7","abc7","1");
+INSERT INTO items VALUES ("8","abc8","1");
+INSERT INTO items VALUES ("9","abc9","1");
+INSERT INTO items VALUES ("10","abc10","1");
+INSERT INTO items VALUES ("11","abc11","3");
+INSERT INTO items VALUES ("12","abc12","3");
+INSERT INTO items VALUES ("13","abc13","3");
+INSERT INTO items VALUES ("14","abc14","3");
+INSERT INTO items VALUES ("15","abc15","3");
+INSERT INTO items VALUES ("16","abc16","3");
+
+
+
+
+
