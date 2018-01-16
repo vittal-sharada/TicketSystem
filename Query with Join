@@ -1,0 +1,4 @@
+SELECT department.deptname, department.deptid, count(*) c 
+from department inner join items 
+on items.deptid=department.deptid
+group by items.deptid having count(*) >4 ;
